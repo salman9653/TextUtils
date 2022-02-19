@@ -3,7 +3,6 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-import About from './components/About';
 function App() {
   const [mode , setMode] = useState("light");
   const[alert, setAlert] = useState(null);
