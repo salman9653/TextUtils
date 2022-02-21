@@ -22,10 +22,7 @@ export default function TextForm(props) {
         props.alert("All extra spaces are Removed","success");
         }
         function onCopy(){
-            var text = document.getElementById("TextArea");
-            text.select();
-            navigator.clipboard.writeText(text.value);
-            document.getSelection().removeAllRanges();
+            navigator.clipboard.writeText(text);
             props.alert("Copied to Clipboard","success")
             }
     function onClear(){
@@ -78,8 +75,8 @@ export default function TextForm(props) {
         </div>
         <div className="container my-3">
             <h3>Your Text Summary </h3>
-            <p>{text.split(" ").filter(element => element.length !== 0).length} words and {text.length} characters</p>
-            <p>{0.48 * text.split(" ").filter(element => element.length !== 0).length} seconds to read.</p>
+            <p>{text.split(/\s+/).filter(element => element.length !== 0).length} words and {text.length} characters</p>
+            <p>{0.48 * text.split(/\s+/).filter(element => element.length !== 0).length} seconds to read.</p>
             <h3>Preview</h3>
             <p>{text.length===0 ? "Nothing to Preview" : text }</p>
         </div>
